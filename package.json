@@ -6,13 +6,14 @@
   "main": "dist/redux-appinsights.umd.js",
   "module": "dist/redux-appinsights.es5.js",
   "typings": "dist/types/redux-appinsights.d.ts",
+  "homepage": "https://arkadiuminc.github.io/redux-appinsights-middleware",
   "files": [
     "dist"
   ],
   "author": "rand0me <not.randome@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArkadiumInc/redux-appinsights-middleware"
+    "url": "git@github.com:ArkadiumInc/redux-appinsights-middleware"
   },
   "license": "MIT",
   "engines": {
@@ -21,12 +22,12 @@
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --excludePrivate --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
-    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "deploy-docs": "gh-pages -d docs",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
@@ -86,6 +87,7 @@
     "coveralls": "^3.0.0",
     "cross-env": "^5.0.1",
     "cz-conventional-changelog": "^2.0.0",
+    "gh-pages": "^1.2.0",
     "husky": "^0.14.0",
     "jest": "^22.0.2",
     "lint-staged": "^7.0.0",
